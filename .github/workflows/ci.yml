@@ -7,6 +7,10 @@ jobs:
   lint-and-validate:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./despliegue2627
+
     steps:
       - name: Checkout código
         uses: actions/checkout@v7
@@ -16,6 +20,7 @@ jobs:
         with:
           node-version: '24'
           cache: 'npm'
+          cache-dependency-path: despliegue2627/package-lock.json
 
       - name: Instalar dependencias
         run: npm ci
