@@ -21,13 +21,7 @@ jobs:
 
       - name: Copiar los archivos al bucket
         run: |
-          aws s3 sync . s3://${{ secrets.S3_BUCKET }} --delete \
-          --exclude ".git/*" \
-          --exclude ".github/*" \
-          --exclude "node_modules/*" \
-          --exclude "tests/*" \
-          --exclude "package*.json" \
-          --exclude "*.cjs"
+          aws s3 sync . s3://${{ secrets.S3_BUCKET }} --delete --exclude ".git/*" --exclude ".github/*" --exclude "node_modules/*" --exclude "tests/*"
 
       - name: Mostrar el contenido del bucket
         run: aws s3 ls s3://${{ secrets.S3_BUCKET }} --recursive
