@@ -25,6 +25,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './despliegue'
+          # Si necesitas un directorio de trabajo específico para la subida, puedes usar:
+          # working-directory: './tu-carpeta'
 
       - name: Desplegar en GitHub Pages
         id: deploy
